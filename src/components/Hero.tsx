@@ -1,19 +1,19 @@
-import { motion } from "framer-motion";
+import { motion, Variants, TargetAndTransition } from "framer-motion";
 import { useLanguage } from "@/hooks/useLanguage";
 import { ArrowRight, Sparkles } from "lucide-react";
 
 const Hero = () => {
     const { t, lang, dir } = useLanguage();
 
-    const fadeUpVariants = {
+    const fadeUpVariants: Variants = {
         hidden: { opacity: 0, y: 40 },
-        visible: (i: number) => ({
+        visible: (i: number): TargetAndTransition => ({
             opacity: 1,
             y: 0,
             transition: {
                 duration: 1.2,
                 delay: 0.3 + i * 0.15,
-                ease: [0.25, 0.4, 0.25, 1],
+                ease: [0.25, 0.4, 0.25, 1] as [number, number, number, number],
             },
         }),
     };
